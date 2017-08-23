@@ -9,4 +9,5 @@ Note: The version used in the build is 8.0.4-free. Please change the version num
 
 #### TO RUN THE IMAGE . 
 ```docker run -d -p 7200:7200 graphdb-free```
-
+#### TO RUN THE IMAGE WITH LOCAL STORAGE .
+```docker run --name graphdb -d -p 7200:7200 -v /data/graphdb:/opt/graphdb/home --restart unless-stopped  graphdb-free```
