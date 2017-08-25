@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk
+FROM azul/zulu-openjdk
 
 LABEL maintainer "Manas Ranjan Kar <manasrkar91@gmail.com>"
 
@@ -8,9 +8,9 @@ ARG edition=free
 
 
 # Environment variables, to be used for the docker image
-ENV GDB_HEAP_SIZE=30g
+ENV GDB_HEAP_SIZE=120g
 ENV GDB_MIN_MEM=1g
-ENV GDB_MAX_MEM=60g
+ENV GDB_MAX_MEM=120g
 
 ENV GRAPHDB_PARENT_DIR=/opt/graphdb
 ENV GRAPHDB_HOME=${GRAPHDB_PARENT_DIR}/home
@@ -19,7 +19,9 @@ ENV GRAPHDB_INSTALL_DIR=${GRAPHDB_PARENT_DIR}/dist
 # Copy the installation file recieved after registration
 ADD graphdb-${edition}-${version}-dist.zip /tmp
 
-RUN mkdir -p ${GRAPHDB_PARENT_DIR} && \
+RUN apt-get update && \
+    apt-get install unzip && \
+    mkdir -p ${GRAPHDB_PARENT_DIR} && \
     cd ${GRAPHDB_PARENT_DIR} && \
     unzip /tmp/graphdb-${edition}-${version}-dist.zip && \
     mv graphdb-${edition}-${version} dist && \
