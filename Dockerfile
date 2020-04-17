@@ -3,14 +3,14 @@ FROM azul/zulu-openjdk
 LABEL maintainer "Manas Ranjan Kar <manasrkar91@gmail.com>"
 
 # Build time arguments
-ARG version=8.2.0
+ARG version=9.1.1
 ARG edition=free
 
 
 # Environment variables, to be used for the docker image
-ENV GDB_HEAP_SIZE=120g
+ENV GDB_HEAP_SIZE=48g
 ENV GDB_MIN_MEM=1g
-ENV GDB_MAX_MEM=120g
+ENV GDB_MAX_MEM=48g
 
 ENV GRAPHDB_PARENT_DIR=/opt/graphdb
 ENV GRAPHDB_HOME=${GRAPHDB_PARENT_DIR}/home
