@@ -15,5 +15,9 @@ docker run -d -p 7200:7200 graphdb-free
 ```
 #### TO RUN THE IMAGE WITH LOCAL STORAGE .
 ```
-docker run --name graphdb -d -p 7200:7200 -v /data/graphdb:/opt/graphdb/home --restart unless-stopped  graphdb-free
+docker run --name graphdb -d \
+  -p 7200:7200 \
+  -v /data/graphdb:/opt/graphdb/home \
+  --restart unless-stopped \
+  graphdb-free
 ```
