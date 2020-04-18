@@ -6,7 +6,7 @@ Note: The version used in the build is 9.1.1. Please change the version number i
 
 #### BUILD THE IMAGE . 
 ```
-docker build -t graphdb-free .
+docker build -t graphdb-free --build-arg version=9.1.1 .
 ```
 
 #### TO RUN THE IMAGE . 
